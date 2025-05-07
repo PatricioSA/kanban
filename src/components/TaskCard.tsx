@@ -49,9 +49,11 @@ export default function TaskCard({ task }: TaskCardProps) {
         >
             <p className="text-sm mb-2">{task.description}</p>
 
-            <Tag color={getPriorityColor(task.priority)}>
-                Prioridade: {getPriorityText(task.priority).toUpperCase()}
-            </Tag>
+            <div className="mb-4">
+                <Tag color={getPriorityColor(task.priority)}>
+                    Prioridade: {getPriorityText(task.priority).toUpperCase()}
+                </Tag>
+            </div>
 
             <Flex gap={"small"} justify={"flex-end"}>
                 {task.status !== "done" && (
