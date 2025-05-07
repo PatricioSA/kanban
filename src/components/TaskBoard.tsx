@@ -1,5 +1,6 @@
 import { Badge, Col, Row } from "antd";
 import type { Task } from "../entities/Task";
+import TaskCard from "./TaskCard";
 
 export default function TaskBoard() {
   const tasks: Task[] = [
@@ -53,28 +54,34 @@ export default function TaskBoard() {
 
   return (
     <Row className="w-full min-h-screen p-4">
-      <Col xs={24} sm={12} md={8} className="px-2">
+      <Col xs={24} sm={12} md={8} className="p-3">
         <div className="flex items-center text-lg font-semibold p-2 mb-4 gap-2 bg-gray-300 rounded-sm">
           <span>A Fazer</span>
           <Badge color="blue" count={tasksTodo.length} showZero className="text-xl" />
         </div>
-        {tasksTodo.map((task) => <div>{task.title}</div>)}
+        <section className="flex flex-col gap-y-2">
+          {tasksTodo.map((task) => <TaskCard key={task.id} task={task} />)}
+        </section>
       </Col>
 
-      <Col xs={24} sm={12} md={8} className="px-2">
+      <Col xs={24} sm={12} md={8} className="p-3">
         <div className="flex items-center text-lg font-semibold p-2 mb-4 gap-2 bg-yellow-200 rounded-sm">
           <span>Em Progresso</span>
           <Badge color="yellow" count={tasksDoing.length} showZero className="text-xl" />
         </div>
-        {tasksDoing.map((task) => <div>{task.title}</div>)}
+        <section className="flex flex-col gap-y-2">
+          {tasksDoing.map((task) => <TaskCard key={task.id} task={task} />)}
+        </section>
       </Col>
 
-      <Col xs={24} sm={12} md={8} className="px-2">
+      <Col xs={24} sm={12} md={8} className="p-3">
         <div className="flex items-center text-lg font-semibold p-2 mb-4 gap-2 bg-green-300 rounded-sm">
           <span>Concluídas</span>
           <Badge color="green" count={tasksDone.length} showZero className="text-xl" />
         </div>
-        {tasksDone.map((task) => <div>{task.title}</div>)}
+        <section className="flex flex-col gap-y-2">
+          {tasksDone.map((task) => <TaskCard key={task.id} task={task} />)}
+        </section>
       </Col>
     </Row>
   )
