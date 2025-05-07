@@ -1,11 +1,10 @@
-import { Button } from "antd"
+import TaskBoard from "./components/TaskBoard"
 
 function App() {
 
   return (
     <>
-      <div>Hello</div>
-      <Button type="primary" onClick={() => alert('Hello!')}>Primary Button</Button>
+      <TaskBoard/>
     </>
   )
 }
