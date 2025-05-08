@@ -53,7 +53,7 @@ export default function TaskBoard() {
   const tasksDone = tasks.filter(task => task.status === "done")
 
   return (
-    <Row className="w-full min-h-screen p-4">
+    <Row className="w-full min-h-screen">
       <Col xs={24} sm={12} md={8} className="p-3">
         <div className="flex items-center text-lg font-semibold p-2 mb-4 gap-2 bg-gray-300 rounded-sm">
           <span>A Fazer</span>
